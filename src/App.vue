@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view />
+    <span>111</span>
   </div>
 </template>
 
@@ -23,13 +24,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
-ul, ol{
+ul,
+ol {
   list-style: none;
 }
-button, input{
-  font:inherit;
+button,
+input {
+  font: inherit;
 }
-:focus{
+:focus {
   outline: none;
-}   
+}
 </style>

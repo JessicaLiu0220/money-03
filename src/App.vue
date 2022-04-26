@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <router-view />
-    <span>111</span>
   </div>
 </template>
 

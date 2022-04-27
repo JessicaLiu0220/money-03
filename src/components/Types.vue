@@ -17,22 +17,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      type: "-",
-    };
-  },
-  methods: {
-    selectedType(type) {
-      if (type !== "-" && type !== "+") {
-        throw new Error("type is unknown");
-      }
-      this.type = type;
-    },
-  },
-};
+<script lang="ts">
+import Vue from "vue";
+import { Component, Watch } from "vue-property-decorator";
+
+@Component
+export default class Types extends Vue {
+  type = "-";
+  selectedType(type: string) {
+    if (type !== "-" && type !== "+") {
+      throw new Error("type is unknown");
+    }
+    this.type = type;
+  }
+  @Watch("type")
+  onTypeChange(type: string) {
+    this.$emit("update:value", type);
+  }
+}
 </script>
 
 <style lang="scss" scoped>

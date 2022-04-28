@@ -3,7 +3,7 @@
     <NumberPad @update:value="onUpdateAmount" @submit="saveRecord" />
     <Notes @update:value="onUpdateNotes" />
     <Types @update:value="onUpdateType" />
-    <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
+    <Tags :data-source="tags" @update:value="onUpdateTags" />
   </layout>
 </template>
 
@@ -15,12 +15,13 @@ import Types from "@/components/Types.vue";
 import Notes from "@/components/Notes.vue";
 import Tags from "@/components/Tags.vue";
 import model from "@/model";
+import tagListModel from "@/tagListModel";
 
 @Component({
   components: { NumberPad, Types, Notes, Tags },
 })
 export default class Money extends Vue {
-  tags = ["衣", "食", "住", "行"];
+  tags = tagListModel.fetch();
   record: RecordItem = {
     tags: [],
     notes: "",
@@ -28,6 +29,7 @@ export default class Money extends Vue {
     amount: 0,
   };
   recordList = model.fetch();
+
   onUpdateTags(tag: string[]) {
     this.record.tags = tag;
   }

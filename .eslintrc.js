@@ -1,4 +1,6 @@
+
 module.exports = {
+  "globals": { "RecordItem": true },
   root: true,
   env: {
     node: true

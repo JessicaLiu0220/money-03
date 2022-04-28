@@ -1,7 +1,6 @@
 <template>
   <div class="nav-wrapp">
     <div class="concern" :class="classPrefix && `${classPrefix}-concern`">
-      <!-- "classPrefix && '${classPrefix}-concern'" -->
       <slot />
     </div>
     <Nav />
@@ -10,7 +9,7 @@
 
 <script lang='ts'>
 export default {
-  props:['classPrefix'],
+  props: ["classPrefix"],
 };
 </script>
 
